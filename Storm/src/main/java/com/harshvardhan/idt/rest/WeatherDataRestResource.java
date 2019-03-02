@@ -31,7 +31,7 @@ public class WeatherDataRestResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response get(@DefaultValue("new%20york") @QueryParam("city") String city) {
 		try {
-			return Response.ok(weatherService.getCurrentWeatherAndForecast(city.replaceAll(" ", "%20"))).build();
+			return Response.ok(weatherService.getCurrentWeatherAndForecast(city)).build();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Response.status(Status.NOT_FOUND).entity(e.getMessage()).build();

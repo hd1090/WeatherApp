@@ -24,7 +24,8 @@ import com.harshvardhan.idt.model.WeatherDetails;
 public class WeatherDaoImpl implements WeatherDao {
 
 	public WeatherDetails getCurrentWeather(String city) throws ClientProtocolException, IOException {
-		HttpGet getRequest = new HttpGet(Constants.currentWeatherURL + city);
+		String url = (Constants.currentWeatherURL + city).replaceAll(" ", "%20");
+		HttpGet getRequest = new HttpGet(url);
 		getRequest.addHeader("accept", "application/xml");
 		CloseableHttpClient client = HttpClientBuilder.create().build();
 		HttpResponse response = client.execute(getRequest);
@@ -50,7 +51,8 @@ public class WeatherDaoImpl implements WeatherDao {
 
 	@Override
 	public ForecastDetailsArray getWeatherForcast(String city) throws ClientProtocolException, IOException {
-		HttpGet getRequest = new HttpGet(Constants.forcastWeatherURL + city);
+		String url = (Constants.forcastWeatherURL + city).replaceAll(" ", "%20");
+		HttpGet getRequest = new HttpGet(url);
 		getRequest.addHeader("accept", "application/xml");
 		CloseableHttpClient client = HttpClientBuilder.create().build();
 		HttpResponse response = client.execute(getRequest);
