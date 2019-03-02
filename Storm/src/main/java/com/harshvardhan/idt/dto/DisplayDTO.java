@@ -13,6 +13,9 @@ import com.harshvardhan.idt.model.Weather;
 public class DisplayDTO {
 	@XmlElement
 	private List<Weather> weather;
+	
+	@XmlElement
+	private Float curTemp;
 
 	@XmlElement
 	private Integer minTemp;
@@ -44,6 +47,7 @@ public class DisplayDTO {
 	public DisplayDTO(DisplayWeatherDTO weatherDTO, DisplayForecastDTO forecastDTO) {
 		super();
 		this.weather = weatherDTO.getWeather();
+		this.curTemp = weatherDTO.getCurTemp();
 		this.minTemp = weatherDTO.getMinTemp();
 		this.maxTemp = weatherDTO.getMaxTemp();
 		this.windSpeed = weatherDTO.getWindSpeed();
@@ -55,11 +59,12 @@ public class DisplayDTO {
 		this.daily = forecastDTO.getDaily();
 	}
 
-	public DisplayDTO(List<Weather> weather, Integer minTemp, Integer maxTemp, Float windSpeed, Integer windDirection,
-			Long visibilty, String name, Integer humidity, List<TemperatureTimeSeries> hourly,
+	public DisplayDTO(List<Weather> weather, Float curTemp, Integer minTemp, Integer maxTemp, Float windSpeed,
+			Integer windDirection, Long visibilty, String name, Integer humidity, List<TemperatureTimeSeries> hourly,
 			List<TemperatureTimeSeries> daily) {
 		super();
 		this.weather = weather;
+		this.curTemp = curTemp;
 		this.minTemp = minTemp;
 		this.maxTemp = maxTemp;
 		this.windSpeed = windSpeed;
@@ -70,5 +75,9 @@ public class DisplayDTO {
 		this.hourly = hourly;
 		this.daily = daily;
 	}
+	
+	
+
+	
 
 }

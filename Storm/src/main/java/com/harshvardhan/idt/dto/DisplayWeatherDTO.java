@@ -16,6 +16,9 @@ public class DisplayWeatherDTO {
 	private List<Weather> weather;
 
 	@XmlElement
+	private Float curTemp;
+
+	@XmlElement
 	private Integer minTemp;
 
 	@XmlElement
@@ -35,8 +38,6 @@ public class DisplayWeatherDTO {
 
 	@XmlElement
 	private Integer humidity;
-	
-	
 
 	public List<Weather> getWeather() {
 		return weather;
@@ -70,15 +71,56 @@ public class DisplayWeatherDTO {
 		return humidity;
 	}
 
-	public DisplayWeatherDTO(List<Weather> weather, Integer minTemp, Integer maxTemp, Float windSpeed,
-			Integer windDirection, Long visibility, String name, Integer humidity) {
+	public Float getCurTemp() {
+		return curTemp;
+	}
+
+	public void setCurTemp(Float curTemp) {
+		this.curTemp = curTemp;
+	}
+
+	public void setWeather(List<Weather> weather) {
+		this.weather = weather;
+	}
+
+	public void setMinTemp(Integer minTemp) {
+		this.minTemp = minTemp;
+	}
+
+	public void setMaxTemp(Integer maxTemp) {
+		this.maxTemp = maxTemp;
+	}
+
+	public void setWindSpeed(Float windSpeed) {
+		this.windSpeed = windSpeed;
+	}
+
+	public void setWindDirection(Integer windDirection) {
+		this.windDirection = windDirection;
+	}
+
+	public void setVisibilty(Long visibilty) {
+		this.visibilty = visibilty;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setHumidity(Integer humidity) {
+		this.humidity = humidity;
+	}
+
+	public DisplayWeatherDTO(List<Weather> weather, Float curTemp, Integer minTemp, Integer maxTemp, Float windSpeed,
+			Integer windDirection, Long visibilty, String name, Integer humidity) {
 		super();
 		this.weather = weather;
+		this.curTemp = curTemp;
 		this.minTemp = minTemp;
 		this.maxTemp = maxTemp;
 		this.windSpeed = windSpeed;
 		this.windDirection = windDirection;
-		this.visibilty = visibility;
+		this.visibilty = visibilty;
 		this.name = name;
 		this.humidity = humidity;
 	}
@@ -93,6 +135,7 @@ public class DisplayWeatherDTO {
 		this.visibilty = details.getVisibility();
 		this.name = details.getName();
 		this.humidity = details.getMain().getHumidity();
+		this.curTemp = details.getMain().getTemp();
 	}
 
 }

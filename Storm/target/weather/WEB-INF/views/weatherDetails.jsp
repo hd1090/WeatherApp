@@ -19,7 +19,7 @@
 	}
 </script>
 </head>
-<body>
+<p><%=request.getAttribute("data") %></p>
 	<form class="mui-form--inline" action="../rest/v1/weather/" method="GET">
 		<div class="mui-textfield">
 			<input type="text" name="city">
