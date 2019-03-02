@@ -163,6 +163,7 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-war-plugin</artifactId>
           <configuration>
+          	<outputDirectory>${tomcatDirectory}</outputDirectory>
             <overlays>
               <overlay>
                 <type>war</type>
