@@ -16,10 +16,10 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-    <groupId>javax.xml.bind</groupId>
-    <artifactId>jaxb-api</artifactId>
-    <version>2.2.11</version>
-</dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.2.11</version>
+		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -133,6 +133,11 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<dependency>
+			<groupId>com.maxmind.geoip2</groupId>
+			<artifactId>geoip2</artifactId>
+			<version>2.8.0</version>
+		</dependency>
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -159,23 +164,23 @@
 	<build>
 		<finalName>weather</finalName>
 		<plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-war-plugin</artifactId>
-          <configuration>
-          	<outputDirectory>${tomcatDirectory}</outputDirectory>
-            <overlays>
-              <overlay>
-                <type>war</type>
-                <includes>
-                  <include>**/*.jsp</include>
-                </includes>
-		<targetPath>WEB-INF/views</targetPath>
-              </overlay>
-            </overlays>
-          </configuration>
-        </plugin>
-      </plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<outputDirectory>${tomcatDirectory}</outputDirectory>
+					<overlays>
+						<overlay>
+							<type>war</type>
+							<includes>
+								<include>**/*.jsp</include>
+							</includes>
+							<targetPath>WEB-INF/views</targetPath>
+						</overlay>
+					</overlays>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>
 

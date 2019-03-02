@@ -1,5 +1,6 @@
 com/harshvardhan/idt/service/WeatherService.class
 com/harshvardhan/idt/dto/DisplayWeatherDTO.class
+com/harshvardhan/idt/util/IPUtil.class
 com/harshvardhan/idt/dao/impl/WeatherDaoImpl.class
 com/harshvardhan/idt/service/impl/WeatherServiceImpl.class
 com/harshvardhan/idt/model/ForecastDetails.class
