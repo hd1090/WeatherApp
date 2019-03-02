@@ -19,7 +19,7 @@ import com.harshvardhan.idt.model.WeatherDetails;
 
 public class Main {
 	public static void main(String[] args) throws ClientProtocolException, IOException, JAXBException {
-		HttpGet getRequest = new HttpGet(Constants.weatherURL + "new%20york");
+		HttpGet getRequest = new HttpGet(Constants.currentWeatherURL + "new%20york");
 		getRequest.addHeader("accept", "application/xml");
 		CloseableHttpClient client = HttpClientBuilder.create().build();
 		HttpResponse response = client.execute(getRequest);

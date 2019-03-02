@@ -1,0 +1,11 @@
+/.metadata/
+Servers/
+.DS_Store
+Storm/.DS_Store
+Storm/.classpath
+Storm/.project
+Storm/.settings/
+Storm/bin/
+.recommenders/
+Storm/target/m2e-wtp/
+Storm/target/weather/WEB-INF/lib/jaxb-api-2.2.11.jar

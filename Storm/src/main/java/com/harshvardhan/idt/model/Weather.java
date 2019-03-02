@@ -8,9 +8,6 @@ import javax.xml.bind.annotation.XmlElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Weather {
 
-	@XmlElement(name = "Id")
-	private Long id;
-
 	@XmlElement(name = "main")
 	private String main;
 
@@ -19,14 +16,6 @@ public class Weather {
 
 	@XmlElement
 	private String icon;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getMain() {
 		return main;
@@ -44,9 +33,8 @@ public class Weather {
 		this.description = description;
 	}
 
-	public Weather(Long id, String main, String description, String icon) {
+	public Weather(String main, String description, String icon) {
 		super();
-		this.id = id;
 		this.main = main;
 		this.description = description;
 		this.icon = icon;
