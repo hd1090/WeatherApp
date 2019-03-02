@@ -14,6 +14,6 @@ public interface WeatherService {
 
 	public DisplayForecastDTO getWeatherForcast(String city) throws ClientProtocolException, IOException;
 
-	public DisplayDTO getCurrentWeatherAndForecast(String replaceAll) throws ClientProtocolException, IOException;
+	public DisplayDTO getCurrentWeatherAndForecast(String city) throws ClientProtocolException, IOException;
 
 }

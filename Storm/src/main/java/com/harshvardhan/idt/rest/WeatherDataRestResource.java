@@ -29,9 +29,8 @@ public class WeatherDataRestResource {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response get(@DefaultValue("new%20york") @QueryParam("city") String city, HttpServletRequest request) {
+	public Response get(@DefaultValue("new%20york") @QueryParam("city") String city) {
 		try {
-			System.out.println(request.getRemoteAddr());
 			return Response.ok(weatherService.getCurrentWeatherAndForecast(city.replaceAll(" ", "%20"))).build();
 		} catch (Exception e) {
 			e.printStackTrace();
