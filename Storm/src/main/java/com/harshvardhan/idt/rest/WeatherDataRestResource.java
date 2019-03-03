@@ -40,6 +40,9 @@ public class WeatherDataRestResource {
 			} catch (AddressNotFoundException ae) {
 				currentLocation = Constants.DEFAULT_CITY;
 			}
+			if("".equals(city)) {
+				city = currentLocation;
+			}
 			return Response.ok(weatherService.getCurrentWeatherAndForecast(city, currentLocation)).build();
 		} catch (Exception e) {
 			return Response.status(Status.BAD_REQUEST).entity(e.getMessage()).build();
