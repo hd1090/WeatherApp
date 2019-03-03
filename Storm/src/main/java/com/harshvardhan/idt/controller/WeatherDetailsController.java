@@ -42,7 +42,7 @@ public class WeatherDetailsController {
 			request.setAttribute("city", currentLocation);
 		} catch (AddressNotFoundException ae) {
 			request.setAttribute("error", "Couldn't Autodetect location - please try searching");
-			request.setAttribute("city", Constants.defaultCity);
+			request.setAttribute("city", Constants.DEFAULT_CITY);
 		}
 		return "weatherDetails";
 	}

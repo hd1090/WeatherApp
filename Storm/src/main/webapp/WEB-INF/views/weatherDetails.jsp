@@ -174,7 +174,7 @@
 					content += '<div class="mui-row">';
 						content += '<div class="mui-col-md-3">';
 					content += '<div class="name" align="left"">'+data.name+'</div>';
-					content += '<div class="curTemp" align="center" style="margin-right:38px; font-size:27px">'+data.curTemp+'&#8457;</div>';
+					content += '<div class="curTemp" align="center" style="margin-right:127px; font-size:30px">'+data.curTemp+'&#8457;</div>';
 					content += '</div>';
 					content += '<div class="mui-col-md-4"></div>';
 					content += '<div class="mui-col-md-5">';

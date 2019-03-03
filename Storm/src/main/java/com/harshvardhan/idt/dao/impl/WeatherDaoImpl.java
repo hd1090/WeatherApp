@@ -31,7 +31,7 @@ public class WeatherDaoImpl implements WeatherDao {
 		String url;
 		HttpResponse response;
 		try {
-			url = getURLWithAPIFromPropertiesFile(Constants.currentWeatherURL, city);
+			url = getURLWithAPIFromPropertiesFile(Constants.CURRENT_WEATHER_URL, city);
 			response = execute(url);
 		} catch (IllegalArgumentException ie) {
 			return getDefaultCityWeatherDetails(currentLocation);
@@ -51,14 +51,13 @@ public class WeatherDaoImpl implements WeatherDao {
 		}
 	}
 
-
 	@Override
 	public ForecastDetailsArray getWeatherForcast(String city, String currentLocation)
 			throws ClientProtocolException, IOException {
 		String url;
 		HttpResponse response;
 		try {
-			url = getURLWithAPIFromPropertiesFile(Constants.forcastWeatherURL, city);
+			url = getURLWithAPIFromPropertiesFile(Constants.FORECAST_WEATHER_URL, city);
 			response = execute(url);
 		} catch (IllegalArgumentException e) {
 			return getDefaultCityForecast(currentLocation);
@@ -82,7 +81,7 @@ public class WeatherDaoImpl implements WeatherDao {
 			throws IOException, ClientProtocolException, JsonParseException, JsonMappingException {
 		String url;
 		HttpResponse response;
-		url = getURLWithAPIFromPropertiesFile(Constants.currentWeatherURL, currentLocation);
+		url = getURLWithAPIFromPropertiesFile(Constants.CURRENT_WEATHER_URL, currentLocation);
 		response = execute(url);
 
 		String userProfile = deserialize(response);
@@ -95,7 +94,7 @@ public class WeatherDaoImpl implements WeatherDao {
 			throws IOException, ClientProtocolException, JsonParseException, JsonMappingException {
 		String url;
 		HttpResponse response;
-		url = getURLWithAPIFromPropertiesFile(Constants.forcastWeatherURL, currentLocation);
+		url = getURLWithAPIFromPropertiesFile(Constants.FORECAST_WEATHER_URL, currentLocation);
 		response = execute(url);
 
 		String userProfile = deserialize(response);
@@ -104,7 +103,7 @@ public class WeatherDaoImpl implements WeatherDao {
 
 	private String getURLWithAPIFromPropertiesFile(String baseUrl, String city) throws IOException {
 		String url = String.format(baseUrl,
-				PropertiesUtil.getProperties(Constants.applicationProperties).getProperty("API_KEY"), city)
+				PropertiesUtil.getProperties(Constants.APPLICATION_PROPERTIES).getProperty("API_KEY"), city)
 				.replaceAll(" ", "%20");
 		return url;
 	}

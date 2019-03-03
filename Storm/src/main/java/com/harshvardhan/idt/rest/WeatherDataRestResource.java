@@ -38,7 +38,7 @@ public class WeatherDataRestResource {
 			try {
 				currentLocation = IPUtil.getLocationFromIp(request);
 			} catch (AddressNotFoundException ae) {
-				currentLocation = Constants.defaultCity;
+				currentLocation = Constants.DEFAULT_CITY;
 			}
 			return Response.ok(weatherService.getCurrentWeatherAndForecast(city, currentLocation)).build();
 		} catch (Exception e) {
