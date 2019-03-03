@@ -1,37 +1,38 @@
-## Welcome to GitHub Pages
+## Welcome to Storm - Weather Update Website
 
-You can use the [editor on GitHub](https://github.com/hd1090/WeatherApp/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Easy to build and use. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This project is a Java Web Dynamic module which leverages Jersey - JAX-RS specification with Spring Injection to make available REST APIs and a single page application as well.
 
-### Markdown
+All you need is this repository, java and maven to build this repository and other dependencies and a tomcat server to host it.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+
+Specific versions used in this project are:
+
+**Maven : Apache Maven 3.6.0**
+**Java : Java 1.8**
+**Tomcat : Tomcat 9**
+
+
+Steps to install are:
+
+1. Install and clone this repository:
 
 ```markdown
-Syntax highlighted code block
+git clone ...
+```
+2. Install Maven 3.6.0 and Java 1.8
 
-# Header 1
-## Header 2
-### Header 3
+3. Download tomcat 9 - latest version.
 
-- Bulleted
-- List
+4. Build using maven and provide the tomcat webapps directory (tomcat_home/webapps) as the commandline argument -D (This is to automatically deploy the war file at the required location):
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```markdown
+mvn clean install -DtomcatDirectory=${CATALINA_HOME}/webapps
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+5. Run tomcat. Navigate to tomcat_home/bin and run the startup.sh or startup.bat script.
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/hd1090/WeatherApp/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### That's It!! 
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
