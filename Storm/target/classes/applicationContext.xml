@@ -21,10 +21,11 @@
 		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 
 	<context:component-scan
-		base-package="com.harshvardhan.idt">
+		base-package="com.harshvardhan.idt.*">
 		<context:exclude-filter type="regex"
 			expression="com.harshvardhan.idt.controller.*" />
 	</context:component-scan>
+	<context:property-placeholder location="classpath*:application.properties"/>
 
 	<task:annotation-driven />
 </beans>

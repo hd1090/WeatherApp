@@ -15,8 +15,10 @@ import javax.ws.rs.core.Response.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.harshvardhan.idt.constants.Constants;
 import com.harshvardhan.idt.service.WeatherService;
 import com.harshvardhan.idt.util.IPUtil;
+import com.maxmind.geoip2.exception.AddressNotFoundException;
 
 import io.swagger.annotations.Api;
 
@@ -29,12 +31,18 @@ public class WeatherDataRestResource {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response get(@DefaultValue("new%20york") @QueryParam("city") String city) {
+	public Response get(@DefaultValue("new%20york") @QueryParam("city") String city,
+			@Context HttpServletRequest request, @Context HttpServletResponse response) {
 		try {
-			return Response.ok(weatherService.getCurrentWeatherAndForecast(city)).build();
+			String currentLocation;
+			try {
+				currentLocation = IPUtil.getLocationFromIp(request);
+			} catch (AddressNotFoundException ae) {
+				currentLocation = Constants.defaultCity;
+			}
+			return Response.ok(weatherService.getCurrentWeatherAndForecast(city, currentLocation)).build();
 		} catch (Exception e) {
-			e.printStackTrace();
-			return Response.status(Status.NOT_FOUND).entity(e.getMessage()).build();
+			return Response.status(Status.BAD_REQUEST).entity(e.getMessage()).build();
 		}
 	}
 
@@ -44,11 +52,9 @@ public class WeatherDataRestResource {
 	public Response getIP(@Context HttpServletRequest request, @Context HttpServletResponse response) {
 		try {
 			String ip = IPUtil.getClientIpAddress(request);
-			System.out.println("IP:  " + ip);
 			return Response.ok(IPUtil.getLocationFromIp(ip)).build();
 		} catch (Exception e) {
-			e.printStackTrace();
-			return Response.status(Status.NOT_FOUND).entity(e.getMessage()).build();
+			return Response.status(Status.BAD_REQUEST).entity(e.getMessage()).build();
 		}
 	}
 

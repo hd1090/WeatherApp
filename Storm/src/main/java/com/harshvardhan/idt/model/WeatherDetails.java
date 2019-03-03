@@ -41,6 +41,17 @@ public class WeatherDetails {
 	@XmlElement
 	private Integer cod;
 
+	@XmlElement
+	private Boolean error = Boolean.FALSE;
+
+	public Boolean getError() {
+		return error;
+	}
+
+	public void setError(Boolean error) {
+		this.error = error;
+	}
+
 	public Coord getCoord() {
 		return coord;
 	}

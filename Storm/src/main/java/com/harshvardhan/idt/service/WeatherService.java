@@ -10,10 +10,13 @@ import com.harshvardhan.idt.dto.DisplayWeatherDTO;
 
 public interface WeatherService {
 
-	public DisplayWeatherDTO getCurrentWeather(String city) throws ClientProtocolException, IOException;
+	public DisplayWeatherDTO getCurrentWeather(String city, String currentLocation)
+			throws ClientProtocolException, IOException;
 
-	public DisplayForecastDTO getWeatherForcast(String city) throws ClientProtocolException, IOException;
+	public DisplayForecastDTO getWeatherForcast(String city, String currentLocation)
+			throws ClientProtocolException, IOException;
 
-	public DisplayDTO getCurrentWeatherAndForecast(String city) throws ClientProtocolException, IOException;
+	public DisplayDTO getCurrentWeatherAndForecast(String city, String currentLocation)
+			throws ClientProtocolException, IOException;
 
 }

@@ -43,6 +43,9 @@ public class DisplayDTO {
 
 	@XmlElement
 	List<TemperatureTimeSeries> daily;
+	
+	@XmlElement
+	private Boolean error;
 
 	public DisplayDTO(DisplayWeatherDTO weatherDTO, DisplayForecastDTO forecastDTO) {
 		super();
@@ -57,6 +60,7 @@ public class DisplayDTO {
 		this.humidity = weatherDTO.getHumidity();
 		this.hourly = forecastDTO.getHourly();
 		this.daily = forecastDTO.getDaily();
+		this.error = weatherDTO.getError();
 	}
 
 	public DisplayDTO(List<Weather> weather, Float curTemp, Integer minTemp, Integer maxTemp, Float windSpeed,

@@ -21,32 +21,32 @@ public class WeatherServiceImpl implements WeatherService {
 	WeatherDao weatherDao;
 
 	@Override
-	public DisplayWeatherDTO getCurrentWeather(String city) throws ClientProtocolException, IOException {
+	public DisplayWeatherDTO getCurrentWeather(String city,String currentLocation) throws ClientProtocolException, IOException {
 		if ("".equals(city))
 			city = "new%20york";
 
-		WeatherDetails details = weatherDao.getCurrentWeather(city);
+		WeatherDetails details = weatherDao.getCurrentWeather(city,currentLocation);
 
 		DisplayWeatherDTO dto = new DisplayWeatherDTO(details);
 		return dto;
 	}
 
 	@Override
-	public DisplayForecastDTO getWeatherForcast(String city) throws ClientProtocolException, IOException {
+	public DisplayForecastDTO getWeatherForcast(String city,String currentLocation) throws ClientProtocolException, IOException {
 		if ("".equals(city))
 			city = "new%20york";
 
-		ForecastDetailsArray details = weatherDao.getWeatherForcast(city);
+		ForecastDetailsArray details = weatherDao.getWeatherForcast(city,currentLocation);
 
 		DisplayForecastDTO dto = new DisplayForecastDTO(details);
 		return dto;
 	}
 
 	@Override
-	public DisplayDTO getCurrentWeatherAndForecast(String city) throws ClientProtocolException, IOException {
+	public DisplayDTO getCurrentWeatherAndForecast(String city,String currentLocation) throws ClientProtocolException, IOException {
 
-		DisplayWeatherDTO weatherDTO = getCurrentWeather(city);
-		DisplayForecastDTO forecastDTO = getWeatherForcast(city);
+		DisplayWeatherDTO weatherDTO = getCurrentWeather(city,currentLocation);
+		DisplayForecastDTO forecastDTO = getWeatherForcast(city,currentLocation);
 		DisplayDTO displayDTO = new DisplayDTO(weatherDTO, forecastDTO);
 		return displayDTO;
 	}

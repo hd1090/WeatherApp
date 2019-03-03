@@ -39,6 +39,17 @@ public class DisplayWeatherDTO {
 	@XmlElement
 	private Integer humidity;
 
+	@XmlElement
+	private Boolean error;
+
+	public Boolean getError() {
+		return error;
+	}
+
+	public void setError(Boolean error) {
+		this.error = error;
+	}
+
 	public List<Weather> getWeather() {
 		return weather;
 	}
@@ -136,6 +147,7 @@ public class DisplayWeatherDTO {
 		this.name = details.getName();
 		this.humidity = details.getMain().getHumidity();
 		this.curTemp = details.getMain().getTemp();
+		this.error = details.getError();
 	}
 
 }
